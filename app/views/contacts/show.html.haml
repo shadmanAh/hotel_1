@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @contact.title
+%p
+  %b Description:
+  = @contact.description
+%p
+  %b Address:
+  = @contact.address
+%p
+  %b Phone:
+  = @contact.phone
+%p
+  %b Email:
+  = @contact.email
+%p
+  %b Websit:
+  = @contact.websit
+%p
+  %b Map area:
+  = @contact.map_area
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path

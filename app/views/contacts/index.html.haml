@@ -1,0 +1,111 @@
+%section.hero-wrap.hero-wrap-2{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@about.avatar)}');"}
+  .overlay
+  .container
+    .row.no-gutters.slider-text.align-items-center.justify-content-center
+      .col-md-9.text-center
+        %p.breadcrumbs.mb-2
+          %span
+            Home  Contact 
+            %i.ion-ios-arrow-forward
+        %h1.mb-0.bread 
+          Contact Us
+%section
+  .container
+    .row.no-gutters
+      .col-md-8
+        #map.map
+          .mapouter
+            .gmap_canvas
+              %iframe#gmap_canvas{frameborder: "0", height: "450", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://www.google.com/maps/place/Azadi+Square/@35.3112714,46.9937189,16.5z/data=!4m5!3m4!1s0x3ff997e8bcd34a6b:0x7c0762a3bf1f8fb0!8m2!3d35.3114249!4d46.9961489?", width: "100%"}
+              %a{href: "https://fmovies-online.net"}
+              %br/
+              :css
+                .mapouter{position:relative;text-align:right;height:450px;width:100%;}
+              %a{href: "https://www.embedgooglemap.net"} custom embedded google map
+              :css
+                .gmap_canvas {overflow:hidden;background:none!important;height:450px;width:100%;}
+      .col-md-4.p-4.p-md-5.bg-white
+        %h2.font-weight-bold.mb-4 
+          = @contact.title
+        %p 
+          = @contact.description
+        %p
+          %a.btn.btn-primary{href: "#"} Book Apartment Now
+      .col-md-12
+        .wrapper
+          .row.no-gutters
+            .col-lg-8.col-md-7.d-flex.align-items-stretch
+              .contact-wrap.w-100.p-md-5.p-4
+                %h3.mb-4 Get in touch
+                #form-message-warning.mb-4
+                #form-message-success.mb-4
+                  Your message was sent, thank you!
+                %form#contactForm.contactForm{method: "POST", name: "contactForm"}
+                  .row
+                    .col-md-6
+                      .form-group
+                        %label.label{for: "name"} Full Name
+                        %input#name.form-control{name: "name", placeholder: "Name", type: "text"}/
+                    .col-md-6
+                      .form-group
+                        %label.label{for: "email"} Email Address
+                        %input#email.form-control{name: "email", placeholder: "Email", type: "email"}/
+                    .col-md-12
+                      .form-group
+                        %label.label{for: "subject"} Subject
+                        %input#subject.form-control{name: "subject", placeholder: "Subject", type: "text"}/
+                    .col-md-12
+                      .form-group
+                        %label.label{for: "#"} Message
+                        %textarea#message.form-control{cols: "30", name: "message", placeholder: "Message", rows: "4"}
+                    .col-md-12
+                      .form-group
+                        %input.btn.btn-primary{type: "submit", value: "Send Message"}/
+                        .submitting
+            .col-lg-4.col-md-5.d-flex.align-items-stretch
+              .info-wrap.bg-prim.w-100.p-md-5.p-4
+                %h3 Let's get in touch
+                %p.mb-4 We're open for any suggestion or just to have a chat
+                .dbox.w-100.d-flex.align-items-start
+                  .icon.d-flex.align-items-center.justify-content-center
+                    %span.fa.fa-map-marker
+                  .text.pl-3
+                    %p
+                      %span 
+                        Address:
+                        = @contact.address
+                .dbox.w-100.d-flex.align-items-center
+                  .icon.d-flex.align-items-center.justify-content-center
+                    %span.fa.fa-phone
+                  .text.pl-3
+                    %p
+                      %span 
+                        Phone:
+                        = @contact.phone
+                .dbox.w-100.d-flex.align-items-center
+                  .icon.d-flex.align-items-center.justify-content-center
+                    %span.fa.fa-paper-plane
+                  .text.pl-3
+                    %p
+                      %span 
+                        Email:
+                        = @contact.email
+                .dbox.w-100.d-flex.align-items-center
+                  .icon.d-flex.align-items-center.justify-content-center
+                    %span.fa.fa-globe
+                  .text.pl-3
+                    %p
+                      %span 
+                        Website
+                        = @contact.websit
+
+%h1 Listing contacts
+
+
+= link_to 'Show', @contact
+= link_to 'Edit', edit_contact_path(@contact)
+= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Contact', new_contact_path

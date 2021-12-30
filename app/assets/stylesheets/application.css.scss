@@ -165,6 +165,17 @@ body {
 	}
 }
 
+.bg-light {
+	background: #f3f4f7!important;
+}
+.bg-secondary{
+	background: $secondary !important;
+}
+
+.bg-prim{
+	background: $primary !important;
+}
+
 .badge-success{
     background-color: #198754;
 }
@@ -304,6 +315,13 @@ footer{
 	}
 }
 
+#map {
+	height: 450px;
+	width: 100%;
+	// @include media-breakpoint-down(sm) {
+	// 	height: 300px;
+	// }
+}
 
 .ftco-footer-social {
 	li {
@@ -674,6 +692,46 @@ h1, h2, h3, h4, h5,
 	}
 }
 
+.info-wrap{
+	color: rgba(255,255,255,.8);
+	h3{
+		color: $white;
+		font-size: 30px;
+		font-weight: 700;
+	}
+	.dbox{
+		width: 100%;
+		color: rgba(255,255,255,.8);
+		margin-bottom: 25px;
+		// &:last-child(){
+		// 	margin-bottom: 0;
+		// }
+		p{
+			margin-bottom: 0;
+			span{
+				font-weight: 500;
+				color: $white;
+			}
+			a{
+				color: $white;
+			}
+		}
+		.icon{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			border: 2px solid rgba(255,255,255,.2);
+			span{
+				font-size: 20px;
+				color: $white;
+			}
+		}
+		.text{
+			width: calc(100% - 50px);
+		}
+	}
+}
+
 
 .ftco-service{
 	padding: 70px 0;
@@ -918,16 +976,7 @@ h1, h2, h3, h4, h5,
 } 
 
 
-.bg-light {
-	background: #f3f4f7!important;
-}
-.bg-secondary{
-	background: $secondary !important;
-}
 
-.bg-primary{
-	background: $primary !important;
-}
 
 
 //BUTTON
@@ -1581,45 +1630,7 @@ textarea.form-control {
 	}
 }
 
-.info-wrap{
-	color: rgba(255,255,255,.8);
-	h3{
-		color: $white;
-		font-size: 30px;
-		font-weight: 700;
-	}
-	.dbox{
-		width: 100%;
-		color: rgba(255,255,255,.8);
-		margin-bottom: 25px;
-		// &:last-child(){
-		// 	margin-bottom: 0;
-		// }
-		p{
-			margin-bottom: 0;
-			span{
-				font-weight: 500;
-				color: $white;
-			}
-			a{
-				color: $white;
-			}
-		}
-		.icon{
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			border: 2px solid rgba(255,255,255,.2);
-			span{
-				font-size: 20px;
-				color: $white;
-			}
-		}
-		.text{
-			width: calc(100% - 50px);
-		}
-	}
-}
+
 
 .contactForm{
 	.label{

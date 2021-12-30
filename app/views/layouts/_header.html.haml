@@ -60,8 +60,9 @@
           %li.nav-item{class: "#{'active' if current_page?(blogs_path)}"}
             = link_to blogs_path, class: "nav-link" do
               Blog
-          %li.nav-item
-            %a.nav-link{href: "#"} Contact
+          %li.nav-item{class: "#{'active' if current_page?(contacts_path)}"}
+            = link_to contacts_path, class: "nav-link" do
+              Contact
 
           - if current_user.has_role?(:admin)
             %li.nav-item.dropdown{class: "#{'active' if current_page?(users_path) || current_page?(enrollments_path) || current_page?(home_activity_path)}"}
