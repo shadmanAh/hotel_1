@@ -1,0 +1,47 @@
+%section.hero-wrap.hero-wrap-2{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@about.avatar)}');"}
+  .overlay
+  .container
+    .row.no-gutters.slider-text.align-items-center.justify-content-center
+      .col-md-9.text-center
+        %p.breadcrumbs.mb-2
+          %span
+            Home  Blog 
+            %i.ion-ios-arrow-forward
+        %h1.mb-0.bread 
+          Blog
+
+.container
+  - @blogs.in_groups_of(3).each do |item|
+    .row
+    %br
+      - item.each do |blog|
+        = render 'blogs/blog', blog: blog
+  %br
+.container
+  %h1 Listing blogs
+
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Description
+        %th
+        %th
+        %th
+
+    %tbody
+      - @blogs.each do |blog|
+        %tr
+          %td= blog.title
+          %td= blog.description
+          %td= link_to 'Show', blog
+          %td= link_to 'Edit', edit_blog_path(blog)
+          %td= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Blog', new_blog_path
+
+  
+  
+  

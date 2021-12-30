@@ -1,0 +1,16 @@
+.col-md-4
+  .blog-entry.align-self-stretch
+    - if blog.avatar.attached?
+      = image_tag blog.avatar, width: "100%";
+    .text.p-4.text-center
+      %h3.heading
+        = link_to blog.title, blog
+      .meta.mb-2
+        %div
+          %p
+            = blog.created_at
+        %div
+          %p 
+            Admin
+      %p 
+        = blog.description
