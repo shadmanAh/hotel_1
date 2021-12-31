@@ -1,23 +1,21 @@
-%h1 Listing recommends
+.container
+  %h1 Listing recommends
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @recommends.each do |recommend|
+  %table
+    %thead
       %tr
-        %td= recommend.title
-        %td= recommend.description
-        %td= link_to 'Show', recommend
-        %td= link_to 'Edit', edit_recommend_path(recommend)
-        %td= link_to 'Destroy', recommend, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Title
+        %th Description
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      %tr
+        %td= @recommend.title
+        %td= @recommend.description
+        %td= link_to 'Show', @recommend
+        %td= link_to 'Edit', edit_recommend_path(@recommend)
 
-= link_to 'New Recommend', new_recommend_path
+  %br
+

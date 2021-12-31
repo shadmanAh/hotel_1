@@ -1,7 +1,10 @@
-%h1 Editing recommend
-
-= render 'form'
-
-= link_to 'Show', @recommend
-\|
-= link_to 'Back', recommends_path
+.container 
+    .card 
+        .card-header
+            %h1 Editing recommend
+        .card.body
+            = render 'form'
+        .card-footer
+            = link_to 'Show', @recommend
+            \|
+            = link_to 'Back', recommends_path

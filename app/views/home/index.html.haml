@@ -81,8 +81,6 @@
         %p.mb-4 
           = @main.second_description
         %p.mb-0
-          %a.btn.btn-primary.px-4.py-3{href: "#"} Book now
-          %a.btn.btn-white.px-4.py-3{href: "#"} Contact us
 .p
 .container
   - @hotel_intros.each do |hotel_intro|
@@ -97,6 +95,10 @@
           = @recommend.title
         %p 
           = @recommend.description
+        - if current_user
+          - if current_user.has_role?(:admin)
+            = link_to 'Edit', edit_recommend_path(@recommend), class: 'btn btn-lm btn-warning'
+        
       .col-md-6.wrap-about.ftco-animate
         .heading-section
           .pl-md-5

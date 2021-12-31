@@ -3,7 +3,7 @@ class RecommendsController < ApplicationController
 
   # GET /recommends or /recommends.json
   def index
-    @recommends = Recommend.find(1)
+    @recommend = Recommend.find(1)
   end
 
   # GET /recommends/1 or /recommends/1.json
