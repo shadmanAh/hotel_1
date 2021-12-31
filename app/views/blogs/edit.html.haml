@@ -1,7 +1,10 @@
-%h1 Editing blog
+.container 
+    .card 
+        .card-header
+            %h1 Editing blog
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Back', blogs_path
 
-= render 'form'
 
-= link_to 'Show', @blog
-\|
-= link_to 'Back', blogs_path

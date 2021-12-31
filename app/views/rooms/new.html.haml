@@ -2,12 +2,13 @@
     Hotel
     \|
     New room
-.card 
-    .card-header 
-        %h1 New room
-    .card-body
-        = render 'form'
+.container
+    .card 
+        .card-header 
+            %h1 New room
+        .card-body
+            = render 'form'
 
-= link_to 'Back', rooms_path
+    = link_to 'Back', rooms_path
 
-%p
+    %p

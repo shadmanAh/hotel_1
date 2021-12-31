@@ -5,6 +5,8 @@ class AboutsController < ApplicationController
   def index
     @about = About.find(1)
     @hotel_intros = HotelIntro.all.limit(3)
+    @services = Service.all
+    @recommend = Recommend.find(1)
   end
 
   # GET /abouts/1 or /abouts/1.json

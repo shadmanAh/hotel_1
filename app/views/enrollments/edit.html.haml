@@ -3,15 +3,15 @@
     \|
     Editing
     = @enrollment
-
-.card 
-    .card-header 
-        %h1 
-            .text-warning.fa.fa-star
-            Add a Review
-    .card-body
-        = render 'form'
-    .card-footer
-        = link_to 'Show Review', @enrollment
-        \|
-        = link_to 'Back to Room', room_path(@enrollment.room)
+.container
+    .card 
+        .card-header 
+            %h1 
+                .text-warning.fa.fa-star
+                Add a Review
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Show Review', @enrollment
+            \|
+            = link_to 'Back to Room', room_path(@enrollment.room)

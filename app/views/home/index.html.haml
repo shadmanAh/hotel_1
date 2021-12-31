@@ -87,6 +87,45 @@
 .container
   - @hotel_intros.each do |hotel_intro|
     = render 'hotel_intros/hotel', hotel_intro: hotel_intro
+
+%section.bg-light
+  .container
+    .row
+      .col-md-6.wrap-about
+        = image_tag @recommend.avatar, width: "100%";
+        %h2 
+          = @recommend.title
+        %p 
+          = @recommend.description
+      .col-md-6.wrap-about.ftco-animate
+        .heading-section
+          .pl-md-5
+            %h2.mb-2 What we offer
+        .pl-md-5
+          %p A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+          .row
+            - @services.each do |service|
+              .services-2.col-md-3.d-flex.w-50
+                .icon.d-flex.justify-content-center.align-items-center
+                  %span{class: "#{service.icon}"}
+                .media-body.pl-3
+                  %h3.heading 
+                    = service.title
+                  %p 
+                    = service.description
+                  - if current_user
+                    - if current_user.has_role?(:admin)
+                      = link_to 'Edit', edit_service_path(service), class: 'btn btn-sm btn-warning'
+                      = link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+            
+    .text-center
+      .blog-news
+        %h1
+          Latest news from our blog
+        .subheading 
+          = link_to "News & Blog", blogs_path
+          
+
 .row
 .container
   - @blogs.each do |blog|

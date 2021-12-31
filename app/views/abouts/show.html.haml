@@ -1,12 +1,13 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @about.title
-%p
-  %b Description:
-  = @about.description
-
-= link_to 'Edit', edit_about_path(@about)
-\|
-= link_to 'Back', abouts_path
+.container
+  .card 
+    .card-header
+      %h1
+        = @about.title
+    .card-body
+      %p
+        %b Description:
+        = @about.description
+    .card-footer
+      = link_to 'Edit', edit_about_path(@about)
+      \|
+      = link_to 'Back', abouts_path

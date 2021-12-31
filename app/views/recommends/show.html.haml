@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @recommend.title
+%p
+  %b Description:
+  = @recommend.description
+
+= link_to 'Edit', edit_recommend_path(@recommend)
+\|
+= link_to 'Back', recommends_path

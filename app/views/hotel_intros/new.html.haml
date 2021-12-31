@@ -1,5 +1,8 @@
-%h1 New hotel_intro
-
-= render 'form'
-
-= link_to 'Back', hotel_intros_path
+.container 
+    .card 
+        .card-header
+            %h1 New hotel_intro
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Back', hotel_intros_path

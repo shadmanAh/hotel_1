@@ -1,7 +1,8 @@
-%h1 Editing contact
-
-= render 'form'
-
-= link_to 'Show', @contact
-\|
-= link_to 'Back', contacts_path
+.container
+    .card 
+        .card-header
+            %h1 Editing contact
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Back', contacts_path

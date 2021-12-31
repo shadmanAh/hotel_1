@@ -6,3 +6,7 @@
       = service.title
     %p 
       = service.description
+    - if current_user
+      - if current_user.has_role?(:admin)
+        = link_to 'Edit', edit_service_path(service), class: 'btn btn-sm btn-warning'
+        = link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

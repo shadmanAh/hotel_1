@@ -16,6 +16,7 @@
                 = link_to 'Read more', @hotel_intros_path, class: 'btn btn-primary'
                     
               %p
-                -# - if current_user
-                -#   = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning' if policy(room).edit?
-                -#   = link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(room).destroy?
+              - if current_user
+                - if current_user.has_role?(:admin)
+                  = link_to 'Edit', edit_hotel_intro_path(hotel_intro), class: 'btn btn-sm btn-warning'
+                  = link_to 'Destroy', hotel_intro, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

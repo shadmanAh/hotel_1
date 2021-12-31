@@ -11,36 +11,13 @@
           Blog
 
 .container
-  - @blogs.in_groups_of(3).each do |item|
+  - @blogs.in_groups_of(3, false).each do |item|
     .row
     %br
       - item.each do |blog|
         = render 'blogs/blog', blog: blog
   %br
-.container
-  %h1 Listing blogs
 
-  %table
-    %thead
-      %tr
-        %th Title
-        %th Description
-        %th
-        %th
-        %th
-
-    %tbody
-      - @blogs.each do |blog|
-        %tr
-          %td= blog.title
-          %td= blog.description
-          %td= link_to 'Show', blog
-          %td= link_to 'Edit', edit_blog_path(blog)
-          %td= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Blog', new_blog_path
 
   
   

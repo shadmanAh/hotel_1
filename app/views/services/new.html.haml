@@ -1,5 +1,8 @@
-%h1 New service
-
-= render 'form'
-
-= link_to 'Back', services_path
+.container
+    .card 
+        .card-header
+            %h1 New service
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Back', services_path

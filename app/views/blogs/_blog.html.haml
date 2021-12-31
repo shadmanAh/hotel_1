@@ -14,3 +14,7 @@
             Admin
       %p 
         = blog.description
+      - if current_user
+        - if current_user.has_role?(:admin)
+          = link_to 'Edit', edit_blog_path(blog), class: 'btn btn-sm btn-warning'
+          = link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

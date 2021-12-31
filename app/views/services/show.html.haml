@@ -1,12 +1,11 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @service.title
-%p
-  %b Description:
-  = @service.description
-
-= link_to 'Edit', edit_service_path(@service)
-\|
-= link_to 'Back', services_path
+.container
+  .card 
+    .card-header
+      %h1 
+        = @service.title
+    .card-body
+      = @service.description
+    .card-footer
+      = link_to 'Edit', edit_service_path(@service)
+      \|
+      = link_to 'Back', services_path

@@ -1,5 +1,8 @@
-%h1 New blog
-
-= render 'form'
-
-= link_to 'Back', blogs_path
+.container 
+    .card 
+        .card-header
+            %h1 New blog
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Back', blogs_path

@@ -1,7 +1,10 @@
-%h1 Editing about
-
-= render 'form'
-
-= link_to 'Show', @about
-\|
-= link_to 'Back', abouts_path
+.container
+    .card 
+        .card-header
+            %h1 Editing about
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Show', @about
+            \|
+            = link_to 'Back', abouts_path

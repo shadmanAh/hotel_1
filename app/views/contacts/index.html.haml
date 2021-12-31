@@ -16,7 +16,7 @@
         #map.map
           .mapouter
             .gmap_canvas
-              %iframe#gmap_canvas{frameborder: "0", height: "450", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://www.google.com/maps/place/Azadi+Square/@35.3112714,46.9937189,16.5z/data=!4m5!3m4!1s0x3ff997e8bcd34a6b:0x7c0762a3bf1f8fb0!8m2!3d35.3114249!4d46.9961489?", width: "100%"}
+              %iframe#gmap_canvas{frameborder: "0", height: "450", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?width=600&height=400&hl=en&q=Azadi Square, Sanandaj, Kurdistan Province, Iran&t=&z=14&ie=UTF8&iwloc=B&output=embed", width: "100%"}
               %a{href: "https://fmovies-online.net"}
               %br/
               :css
@@ -99,13 +99,13 @@
                         Website
                         = @contact.websit
 
-%h1 Listing contacts
+.container
+  -# = link_to 'Show', @contact
+  - if current_user
+    - if current_user.has_role?(:admin)
+      = link_to 'Edit page', edit_contact_path(@contact), class: 'btn btn-sm btn-warning'
+  -# = link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' }
 
+  %br
 
-= link_to 'Show', @contact
-= link_to 'Edit', edit_contact_path(@contact)
-= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Contact', new_contact_path
+  -# = link_to 'New Contact', new_contact_path

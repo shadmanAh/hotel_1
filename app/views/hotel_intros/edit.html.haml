@@ -1,7 +1,10 @@
-%h1 Editing hotel_intro
-
-= render 'form'
-
-= link_to 'Show', @hotel_intro
-\|
-= link_to 'Back', hotel_intros_path
+.container 
+    .card 
+        .card-header
+            %h1 Editing hotel_intro
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Show', @hotel_intro
+            \|
+            = link_to 'Back', hotel_intros_path
