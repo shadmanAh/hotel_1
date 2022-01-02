@@ -3,8 +3,8 @@ class ReservesController < ApplicationController
   before_action :set_room, only: [:new, :create]
 
   def index
-    @reserves = Reserf.all
-    authorize @reserves
+    # @reserves = Reserf.all
+    @pagy, @reserves = pagy(Reserf.all)
   end
 
   def show
@@ -15,7 +15,6 @@ class ReservesController < ApplicationController
   end
 
   def edit
-    authorize @reserves
   end
 
   def create
@@ -25,7 +24,6 @@ class ReservesController < ApplicationController
   end
 
   def update
-    authorize @reserves
     respond_to do |format|
       if @reserf.update(reserf_params)
         format.html { redirect_to reserf_url(@reserf), notice: "Reserf was successfully updated." }
@@ -38,7 +36,6 @@ class ReservesController < ApplicationController
   end
 
   def destroy
-    authorize @reserves
     @reserf.destroy
 
     respond_to do |format|

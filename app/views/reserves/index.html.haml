@@ -15,14 +15,22 @@
       %thead
         %tr
           %th Room
-          %th User
+          %th 
+            .fa.fa-user
+            User
           %th First name
           %th Last name
-          %th Check in
-          %th Check out
+          %th 
+            .fa.fa-clock
+            Check in
+          %th 
+            .fa.fa-clock
+            Check out
           %th Adults
           %th Children
-          %th Phone num
+          %th 
+            .fa.fa-phone
+            Phone num
           %th
           %th
           %th
@@ -30,12 +38,16 @@
       %tbody
         - @reserves.each do |reserf|
           %tr
-            %td= reserf.room
-            %td= reserf.user
+            %td= link_to reserf.room, room_path(reserf.room)
+            %td= link_to reserf.user, user_path(reserf.user)
             %td= reserf.first_name
             %td= reserf.last_name
-            %td= reserf.check_in
-            %td= reserf.check_out
+            %td
+              - if reserf.check_in
+                = reserf.check_in.strftime("%d/%b/%Y")
+            %td
+              - if reserf.check_out
+                = reserf.check_out.strftime("%d/%b/%Y")
             %td= reserf.adults
             %td= reserf.children
             %td= reserf.phone_num
@@ -46,3 +58,7 @@
     %br
 
     = link_to 'New Book', new_reserf_path
+    -# != pagy_nav(@pagy)
+    -# != pagy_bootstrap_nav(@pagy)
+    -# != pagy_bootstrap_nav_js(@pagy)
+    != pagy_bootstrap_combo_nav_js(@pagy)
