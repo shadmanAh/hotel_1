@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_061718) do
+ActiveRecord::Schema.define(version: 2022_01_02_065420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,22 @@ ActiveRecord::Schema.define(version: 2021_12_31_061718) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "adult"
+    t.integer "children"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.index ["room_id"], name: "index_books_on_room_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -152,6 +168,22 @@ ActiveRecord::Schema.define(version: 2021_12_31_061718) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reserves", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "adults"
+    t.integer "children"
+    t.string "phone_num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_reserves_on_room_id"
+    t.index ["user_id"], name: "index_reserves_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -223,8 +255,12 @@ ActiveRecord::Schema.define(version: 2021_12_31_061718) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "rooms"
+  add_foreign_key "books", "users"
   add_foreign_key "enrollments", "rooms"
   add_foreign_key "enrollments", "users"
   add_foreign_key "information", "users"
+  add_foreign_key "reserves", "rooms"
+  add_foreign_key "reserves", "users"
   add_foreign_key "rooms", "users"
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   
   rolify
 
+  has_many :reserves
   has_many :rooms
   has_many :enrollments
   
@@ -38,6 +39,10 @@ class User < ApplicationRecord
   def online?
     updated_at > 2.minutes.ago 
   end
+  
+  def book_room(room)
+    self.reserves.create(room: room)
+  end
 
   private 
   def must_have_a_role 
@@ -45,5 +50,4 @@ class User < ApplicationRecord
       errors.add(:roles, "must have at least one role")
     end
   end
-
- end
+end

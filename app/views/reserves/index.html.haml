@@ -1,0 +1,48 @@
+- content_for :title do 
+  Hotel 
+  \|
+  All Booking
+.container
+  %h3
+    .text-center
+      Booking 
+      .badge.badge-info 
+        = @reserves.count
+    %p
+  %h1 Listing Booking
+  .table-responsive
+    %table.table.table-bordered.table-striped.table-sm
+      %thead
+        %tr
+          %th Room
+          %th User
+          %th First name
+          %th Last name
+          %th Check in
+          %th Check out
+          %th Adults
+          %th Children
+          %th Phone num
+          %th
+          %th
+          %th
+
+      %tbody
+        - @reserves.each do |reserf|
+          %tr
+            %td= reserf.room
+            %td= reserf.user
+            %td= reserf.first_name
+            %td= reserf.last_name
+            %td= reserf.check_in
+            %td= reserf.check_out
+            %td= reserf.adults
+            %td= reserf.children
+            %td= reserf.phone_num
+            %td= link_to 'Show', reserf
+            %td= link_to 'Edit', edit_reserf_path(reserf)
+            %td= link_to 'Destroy', reserf, method: :delete, data: { confirm: 'Are you sure?' }
+
+    %br
+
+    = link_to 'New Book', new_reserf_path

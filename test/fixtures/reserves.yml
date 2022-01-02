@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: one
+  user: one
+  first_name: MyString
+  last_name: MyString
+  check_in: 2022-01-02
+  check_out: 2022-01-02
+  adults: 1
+  children: 1
+  phone_num: MyString
+
+two:
+  room: two
+  user: two
+  first_name: MyString
+  last_name: MyString
+  check_in: 2022-01-02
+  check_out: 2022-01-02
+  adults: 1
+  children: 1
+  phone_num: MyString

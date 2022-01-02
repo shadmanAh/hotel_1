@@ -12,4 +12,16 @@ module RoomsHelper
             end
         end
     end
+
+
+    def reserve_button(room)
+        if current_user
+            if room.reserves.where(user: current_user).any?
+                link_to "You booked this room.", rooms_path(room)
+            else
+                link_to "Book #{number_to_currency(room.price)} Per night ", new_room_reserf_path(room), class: "btn btn-md btn-success"
+            end
+        end
+    end
+
 end

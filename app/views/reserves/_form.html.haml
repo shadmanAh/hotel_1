@@ -1,0 +1,18 @@
+-# frozen_string_literal: true
+= simple_form_for(@reserf) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    - if not @room.title
+      = f.association :room
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :check_in
+    = f.input :check_out
+    = f.input :adults
+    = f.input :children
+    = f.input :phone_num
+
+  .form-actions
+    = f.button :submit

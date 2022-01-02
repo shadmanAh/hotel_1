@@ -1,0 +1,16 @@
+- content_for :title do 
+    Hotel 
+    \|
+    Editing 
+    = @reserve.to_s
+
+.container
+    .card 
+        .card-header
+            %h1 Editing reserf
+        .card-body
+            = render 'form'
+        .card-footer
+            = link_to 'Show', @reserf
+            \|
+            = link_to 'Back', reserves_path

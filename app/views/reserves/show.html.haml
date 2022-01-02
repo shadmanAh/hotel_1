@@ -1,0 +1,33 @@
+.container
+
+  %p
+    %b Room:
+    = @reserf.room
+  %p
+    %b User:
+    = @reserf.user
+  %p
+    %b First name:
+    = @reserf.first_name
+  %p
+    %b Last name:
+    = @reserf.last_name
+  %p
+    %b Check in:
+    = @reserf.check_in
+  %p
+    %b Check out:
+    = @reserf.check_out
+  %p
+    %b Adults:
+    = @reserf.adults
+  %p
+    %b Children:
+    = @reserf.children
+  %p
+    %b Phone num:
+    = @reserf.phone_num
+
+  = link_to 'Edit', edit_reserf_path(@reserf)
+  \|
+  = link_to 'Back', reserves_path

@@ -4,7 +4,7 @@ class Room < ApplicationRecord
 
     belongs_to :user 
     has_many :enrollments
-
+    has_many :reserves
     has_one_attached :avatar
 
     def to_s 
@@ -35,4 +35,8 @@ class Room < ApplicationRecord
 
     include PublicActivity::Model
     tracked owner: Proc.new{|controller, model| controller.current_user}
+
+    def book(user)
+        self.reserves.where(user_id: [user.id], room_id: [self.id].empty? )
+    end
 end

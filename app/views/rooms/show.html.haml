@@ -39,9 +39,10 @@
         .fa.fa-comment 
           -# %small= @enrollment.current_room.review
         -# = enrollment_button(@room)
+        -# = @enrollment.where(room_id: @room.id)
         = review_button(@room)
       %p
-        = submit_tag "Book #{number_to_currency(@room.price)} Per night ", class: 'btn btn-success'
+        = reserve_button(@room)
                     
       %p
         = link_to 'Edit', edit_room_path(@room), class: 'btn btn-sm btn-warning' if policy(@room).edit?

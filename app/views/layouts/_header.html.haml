@@ -86,6 +86,9 @@
                 = link_to new_blog_path, class: "dropdown-item" do
                   .fa.fa-plus
                   New Blog
+                = link_to reserves_path, class: "dropdown-item" do
+                  .fa.fa-plus
+                  Booking
           
           .form-inline
             = search_form_for @ransack_rooms, as: :rooms_search, url: rooms_path do |f|

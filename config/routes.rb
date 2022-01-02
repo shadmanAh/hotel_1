@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reserves
+  resources :books
   resources :recommends
   resources :contacts
   resources :blogs
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
   resources :mains
   resources :enrollments
   devise_for :users
-  resources :rooms
+  resources :rooms do 
+    resources :reserves, only: [:new, :create]
+  end
   resources :users, only: [:index, :edit, :show, :update]
   get 'home/index'
   get 'home/activity'
