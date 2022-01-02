@@ -1,6 +1,6 @@
 class ReservesController < ApplicationController
   before_action :set_reserf, only: %i[ show edit update destroy ]
-  before_action :set_room, only: [:new, :create]
+  # before_action :set_room, only: [:new, :create]
 
   def index
     # @reserves = Reserf.all
@@ -46,15 +46,15 @@ class ReservesController < ApplicationController
 
   private
 
-    def set_room
-      @room = Room.friendly.find(params[:room_id])
-    end
+    # def set_room
+    #   @room = Room.friendly.find(params[:room_id])
+    # end
 
     def set_reserf
       @reserf = Reserf.find(params[:id])
     end
 
     def reserf_params
-      params.require(:reserf).permit(:first_name, :last_name, :check_in, :check_out, :adults, :children, :phone_num)
+      params.require(:reserf).permit(:room_id, :user_id, :first_name, :last_name, :check_in, :check_out, :adults, :children, :phone_num)
     end
 end
