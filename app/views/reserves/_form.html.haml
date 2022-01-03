@@ -4,14 +4,15 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    - if current_user.has_role?(:admin) 
-      = f.association :user
-    - else
-      = f.input :user, :input_html => { :value => current_user.email }
-    - if @room.value
-      = f.input :room, :input_html => { :value => room_id }
-    - else
-      = f.association :room
+    -# - if current_user.has_role?(:admin) 
+    -#   = f.association :user
+    -# - else
+    -#   = f.input :user, :input_html => { :value => current_user.email }
+    
+    -# - if @room.id.value
+    -#   = f.input :room, :input_html => { :value => @reserf.room_id }
+    -# - else
+      -# = f.association :room
 
     
     = f.input :first_name

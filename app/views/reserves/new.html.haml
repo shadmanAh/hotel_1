@@ -8,8 +8,8 @@
             %h1 
                 New Booking 
         .card-body
-            = render 'form'
-            -# = form_tag room_reserves_path(@room) do 
-            -#     = submit_tag "Book #{number_to_currency(@room.price)} Per night ", class: 'btn btn-lg btn-success'
+            -# = render 'form'
+            = form_tag room_reserves_path(@room) do 
+                = submit_tag "Book #{number_to_currency(@room.price)} Per night ", class: 'btn btn-lg btn-success'
         .card-footer
             = link_to 'Back', reserves_path
