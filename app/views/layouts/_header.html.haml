@@ -57,7 +57,7 @@
             = link_to contacts_path, class: "nav-link" do
               Contact
           - if current_user.has_role?(:admin)
-            %li.nav-item.dropdown{class: "#{'active' if current_page?(users_path) || current_page?(enrollments_path) || current_page?(home_activity_path) || current_page?(mains_path) || current_page?(hotel_intros_path) || current_page?(new_service_path) || current_page?(new_room_path) || current_page?(new_blog_path)}"}
+            %li.nav-item.dropdown{class: "#{'active' if current_page?(users_path) || current_page?(enrollments_path) || current_page?(home_activity_path) || current_page?(mains_path) || current_page?(hotel_intros_path) || current_page?(new_service_path) || current_page?(new_room_path) || current_page?(new_blog_path)|| current_page?(reserves_path)}"}
               %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
                 .fa.fa-cog
                 Admin
@@ -87,7 +87,6 @@
                   .fa.fa-plus
                   New Blog
                 = link_to reserves_path, class: "dropdown-item" do
-                  .fa.fa-plus
                   Booking
           
           .form-inline
@@ -102,7 +101,7 @@
           %li.nav-item.dropdown
             %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
               %b= current_user.email.split("@").first
-            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
+            .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
               = link_to edit_user_registration_path, class: "dropdown-item" do
                 %i.fa.fa-cog
                 %b Account settings

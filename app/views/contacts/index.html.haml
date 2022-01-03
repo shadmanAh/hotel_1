@@ -35,33 +35,7 @@
         .wrapper
           .row.no-gutters
             .col-lg-8.col-md-7.d-flex.align-items-stretch
-              .contact-wrap.w-100.p-md-5.p-4
-                %h3.mb-4 Get in touch
-                #form-message-warning.mb-4
-                #form-message-success.mb-4
-                  Your message was sent, thank you!
-                %form#contactForm.contactForm{method: "POST", name: "contactForm"}
-                  .row
-                    .col-md-6
-                      .form-group
-                        %label.label{for: "name"} Full Name
-                        %input#name.form-control{name: "name", placeholder: "Name", type: "text"}/
-                    .col-md-6
-                      .form-group
-                        %label.label{for: "email"} Email Address
-                        %input#email.form-control{name: "email", placeholder: "Email", type: "email"}/
-                    .col-md-12
-                      .form-group
-                        %label.label{for: "subject"} Subject
-                        %input#subject.form-control{name: "subject", placeholder: "Subject", type: "text"}/
-                    .col-md-12
-                      .form-group
-                        %label.label{for: "#"} Message
-                        %textarea#message.form-control{cols: "30", name: "message", placeholder: "Message", rows: "4"}
-                    .col-md-12
-                      .form-group
-                        %input.btn.btn-primary{type: "submit", value: "Send Message"}/
-                        .submitting
+              
             .col-lg-4.col-md-5.d-flex.align-items-stretch
               .info-wrap.bg-prim.w-100.p-md-5.p-4
                 %h3 Let's get in touch
