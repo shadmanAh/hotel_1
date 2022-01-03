@@ -42,8 +42,12 @@
         -# = @enrollment.where(room_id: @room.id)
         = review_button(@room)
       %p
+        - if @room.reserves.where(user: current_user).any?
+          %b.text-success
+            = "You Booked this room."
+      %p
         = reserve_button(@room)
-
+        
                     
       %p
         = link_to 'Edit', edit_room_path(@room), class: 'btn btn-sm btn-warning' if policy(@room).edit?

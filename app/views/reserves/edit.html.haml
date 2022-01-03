@@ -13,4 +13,7 @@
         .card-footer
             = link_to 'Show', @reserf
             \|
-            = link_to 'Back', reserves_path
+            - if current_user.has_role?(:admin)
+                = link_to 'Back', reserves_path
+            - else 
+                = link_to 'Back', rooms_path
